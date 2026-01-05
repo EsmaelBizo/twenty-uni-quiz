@@ -1,7 +1,7 @@
 :root {
     --main-padding: 20px;
     --main-color: #662249;
-    --alt-color: white;
+    --alt-color: #E9BCB9;
     --main-green: #00960c;
     --main-transition: 0.3s;
     --main-radius: 10px;
@@ -42,10 +42,11 @@ h1, h2, h3, h4, h5, p {
     pointer-events: none;
 }
 .splash h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     font-size: 160px;
-    font-weight: normal;
     color: var(--main-color);
-    background-color: #E9BCB9;
+    background-color: var(--alt-color);
     padding: 0 20px;
     border-radius: 8px;
     transform: translateY(-15px);
@@ -61,7 +62,7 @@ h1, h2, h3, h4, h5, p {
     justify-content: end;
     border-radius: var(--main-radius);
     margin: auto;
-    background-color: #E9BCB9;
+    background-color: var(--alt-color);
     padding: var(--main-padding);
     width: 750px;
     overflow: hidden;
@@ -137,7 +138,7 @@ h1, h2, h3, h4, h5, p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--alt-color);
+    background-color: white;
     padding: 15px;
     box-shadow: 0 0 2px 0px grey;
     border-radius: var(--main-radius);
@@ -152,10 +153,10 @@ form {
     box-shadow: 0 0 2px 0px grey;
     border-radius: var(--main-radius);
     overflow: hidden;
-    background-color: var(--alt-color);
+    background-color: white;
 }
 .question {
-    background-color: var(--alt-color);
+    background-color: white;
     padding: var(--main-padding);
     position: relative;
     top: 6px;
@@ -202,7 +203,7 @@ form {
     color: white;
 }
 .question .answers .answer input:not(:checked) + label:hover {
-    background-color: #E9BCB9;
+    background-color: var(--alt-color);
 }
 .question .answers .answer input.right + label {
     background-color: var(--main-green);
