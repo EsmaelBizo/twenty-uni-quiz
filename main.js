@@ -12,7 +12,11 @@ let rightAnswers = 0;
 let allQuestions = [];
 let questions = [];
 
-addCats(['algorithms_practical', 'عملي خوارزميات'], ['microprocessor_practical', 'عملي معالج مصغر']);
+setTimeout(() => {
+    document.querySelector('.splash').classList.add('hidden');
+}, 1000)
+
+addCats([['algorithms_practical', 'خوارزميات'], ['microprocessor_practical', 'معالج مصغر']]);
 
 document.querySelector('.start').onclick = () => {
     document.querySelector('.slide-audio').play();
@@ -60,7 +64,7 @@ function getQuestions() {
 
 function startNewQuiz() {
     shuffle(allQuestions);
-    questions = allQuestions.slice(0, 20); // عدد الأسئلة
+    questions = allQuestions.slice(0, 2); // عدد الأسئلة
 
     qNum.innerHTML = questions.length;
     document.querySelector('.bullets').innerHTML = '';
@@ -90,20 +94,24 @@ function createBullets (num) {
 function addData(obj) {
     timer(20);
     document.querySelector('.question h2').append(obj.title);
-    for (let i = 1; i <= 4; i++) {
+    let shf = [1, 2, 3, 4];
+    shuffle(shf);
+    
+    for (let i = 0; i < 4; i++) {
+                
         let ans = document.createElement('div');
         ans.className = 'answer';
         
         let inp = document.createElement('input');
         inp.setAttribute('type', 'radio');
         inp.setAttribute('name', 'answers');
-        inp.setAttribute('id', `answer_${i}`);
-        inp.dataset.answer = obj[`answer_${i}`];
+        inp.setAttribute('id', `answer_${shf[i]}`);
+        inp.dataset.answer = obj[`answer_${shf[i]}`];
         ans.appendChild(inp);
 
         let label = document.createElement('label');
-        label.htmlFor = `answer_${i}`;
-        label.append(obj[`answer_${i}`]);
+        label.htmlFor = `answer_${shf[i]}`;
+        label.append(obj[`answer_${shf[i]}`]);
         ans.appendChild(label);
         
         answersCont.appendChild(ans);
@@ -177,20 +185,21 @@ function addResult(from) {
     let per = Math.ceil(rightAnswers * 100 / from);
     rank.innerHTML = `${per}%`;
     if (per >= 60) {
+        if(rank.classList.contains('failed')) rank.classList.remove('failed');
         rank.classList.add('passed');
         document.querySelector('.tada-audio').play();
     } else {
+        if(rank.classList.contains('passed')) rank.classList.remove('passed');
         rank.classList.add('failed');
         document.querySelector('.fail-audio').play();
     }
 }
 
 function shuffle(array) {
-for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-}
-
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
 }
 
 function timer(sec) {
