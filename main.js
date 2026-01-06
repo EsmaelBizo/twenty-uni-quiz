@@ -2,9 +2,9 @@ let catId;
 let qNum = document.querySelector('.info .quiz-num span');
 let answersCont = document.querySelector('.answers');
 let subbut = document.querySelector('input[type="submit"]');
+let timeLeft;
 let spansBullets;
 let rank = document.querySelector('.finish .rank');
-let timeLeft;
 let countdownAudio = document.querySelector('.countdown-audio');
 
 let qIndex = 0;
