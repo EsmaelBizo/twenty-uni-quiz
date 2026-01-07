@@ -17,8 +17,10 @@ setTimeout(() => {
 }, 700)
 
 addCats([
-    {id: 'algorithms_practical', name: 'خوارزميات'},
-    {id: 'microprocessor_practical', name: 'معالج مصغر'}, 
+    {id: 'algorithms_practical', name: 'خوارزميات 2'},
+    {id: 'microprocessor_practical', name: 'معالج مصغر'},
+    {id: 'computer_graphics_practical', name: 'رسوميات حاسوبية'},
+    {id: 'graph_theory_practical', name: 'نظرية المخططات'}
 ]);
 
 document.querySelector('.start').onclick = () => {
