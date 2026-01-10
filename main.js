@@ -18,9 +18,9 @@ setTimeout(() => {
 
 addCats([
     {id: 'algorithms_practical', name: 'خوارزميات 2'},
-    {id: 'microprocessor_practical', name: 'معالج مصغر'},
-    {id: 'computer_graphics_practical', name: 'رسوميات حاسوبية'},
-    {id: 'graph_theory_practical', name: 'نظرية المخططات'}
+    // {id: 'microprocessor_practical', name: 'معالج مصغر'},
+    // {id: 'computer_graphics_practical', name: 'رسوميات حاسوبية'},
+    // {id: 'graph_theory_practical', name: 'نظرية المخططات'}
 ]);
 
 document.querySelector('.start').onclick = () => {
@@ -100,7 +100,7 @@ function createBullets (num) {
 
 function addData(obj) {
     timer(20);
-    document.querySelector('.question h2').append(obj.title);
+    document.querySelector('.question h2').innerHTML = obj.title;
     let shf = [1, 2, 3, 4];
     shuffle(shf);
     

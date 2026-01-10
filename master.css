@@ -164,6 +164,9 @@ form {
 .question h2 {
     margin-bottom: 20px;
 }
+.question h2 pre {
+    direction: ltr;
+}
 @media(max-width: 767px) {
     .question h2 {
         font-size: 18px;
