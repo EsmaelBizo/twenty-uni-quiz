@@ -164,24 +164,36 @@ form {
 .question h2 {
     margin-bottom: 20px;
 }
-.question h2 pre {
+.question pre {
     direction: ltr;
     font-family: 'Consolas', monospace;
     font-size: 18px;
-    overflow-x: auto;
+    max-width: 100%;
+    overflow-x: scroll;
     white-space: pre;
-  background: #f6f8fa;
-  padding: 10px;
-  border-radius: 6px;
-  font-size: 14px;
-  line-height: 1.6;
+    box-sizing: border-box;
+    background: #f6f8fa;
+    padding: 10px;
+    border-radius: 6px;
+    line-height: 1.6;
+    -webkit-overflow-scrolling: touch;
+}
+.question pre::-webkit-scrollbar {
+    height: 10px;
+}
+.question pre::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 6px;
+}
+.question pre::-webkit-scrollbar-track {
+    background: #e0e0e0;
 }
 @media(max-width: 767px) {
     .question h2 {
         font-size: 18px;
     }
     .question h2 pre {
-        font-size: 12px;
+        font-size: 13px;
     }
 }
 .question .answers {
