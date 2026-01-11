@@ -106,7 +106,6 @@ function addData(obj) {
     shuffle(shf);
     
     for (let i = 0; i < 4; i++) {
-                
         let ans = document.createElement('div');
         ans.className = 'answer';
         
@@ -137,7 +136,8 @@ conf.onclick = (e) => {
     e.preventDefault();
     conf.style.display = 'none';
     next.style.display = 'inline-block';
-    checkAns(questions[qIndex]);
+    checkAns(questions[qIndex]);    
+    document.querySelectorAll('.answer input').forEach((ansInp) => ansInp.disabled = true)
 }
 
 next.onclick = (e) => {
