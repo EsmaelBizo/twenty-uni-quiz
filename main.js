@@ -69,6 +69,7 @@ function getQuestions() {
 }
 
 function startNewQuiz() {
+    timer(20 * 60);
     shuffle(allQuestions);
     questions = allQuestions.slice(0, 20); // عدد الأسئلة
 
@@ -99,7 +100,6 @@ function createBullets (num) {
 }
 
 function addData(obj) {
-    timer(20);
     document.querySelector('.question h2').innerHTML = obj.title;
     let shf = [1, 2, 3, 4];
     shuffle(shf);
@@ -131,12 +131,11 @@ function resetData() {
 }
 
 subbut.onclick = (e) => {
-    clearInterval(timeLeft);
     countdownAudio.pause();
     countdownAudio.currentTime = 0;
     e.preventDefault();
-    checkAns(questions[qIndex]);
     subbut.style.display = 'none';
+    checkAns(questions[qIndex]);
     setTimeout(() => {
         qIndex++;
         if (qIndex < questions.length) {
@@ -144,9 +143,7 @@ subbut.onclick = (e) => {
             addData(questions[qIndex]);
             spansBullets[qIndex].className = 'on';
         } else {
-            document.querySelector('form').style.display = 'none';
-            addResult(questions.length);
-            settingTime(0);
+            endQuiz();
         }
         subbut.style.display = 'block';
     }, 1500)
@@ -183,6 +180,7 @@ function wrongAnswer(ans) {
 }
 
 function addResult(from) {
+    clearInterval(timeLeft);
     document.querySelector('.more-info').style.display = 'none';
     document.querySelector('.finish').style.display = 'block';
     document.querySelector('.result').classList.add('apear');
@@ -210,11 +208,17 @@ function shuffle(array) {
 
 function timer(sec) {
     settingTime(sec);
-    sec > 0 ? sec-- : subbut.click();
+    sec--;
     timeLeft = setInterval(() => {
         settingTime(sec);
-        sec > 0 ? sec-- : subbut.click();
+        sec > 0 ? sec-- : endQuiz();
     }, 1000)
+}
+
+function endQuiz() {
+    document.querySelector('form').style.display = 'none';
+    addResult(questions.length);
+    settingTime(0);
 }
 
 function settingTime(sec) {

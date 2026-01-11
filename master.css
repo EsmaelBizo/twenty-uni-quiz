@@ -168,10 +168,15 @@ form {
     direction: ltr;
     font-family: 'Consolas', monospace;
     font-size: 18px;
+    overflow-x: auto;
+    white-space: pre;
 }
 @media(max-width: 767px) {
     .question h2 {
         font-size: 18px;
+    }
+    .question h2 pre {
+        font-size: 12px;
     }
 }
 .question .answers {
