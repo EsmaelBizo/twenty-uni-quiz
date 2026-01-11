@@ -170,6 +170,11 @@ form {
     font-size: 18px;
     overflow-x: auto;
     white-space: pre;
+  background: #f6f8fa;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.6;
 }
 @media(max-width: 767px) {
     .question h2 {
